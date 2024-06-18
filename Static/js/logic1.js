@@ -20,7 +20,7 @@ function createMap(markers) {
   // Create the map object with options.
   map = L.map("map-id", {
     center: [40.73, -74.0059],
-    zoom: 4,
+    zoom: 9,
     layers: [streetmap, markers]
   });
 

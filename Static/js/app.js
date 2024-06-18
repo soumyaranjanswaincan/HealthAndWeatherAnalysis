@@ -436,11 +436,13 @@ function init() {
     State = stateNames[0];
     buildOverallSummary();
     buildCharts('All States');
-    buildChartsbyHealthCondition('Current Asthma');
+    //buildChartsbyHealthCondition('Current Asthma');
     analyzeHealth();
+    createLineChart();
 
   });
 }
+
 
 // Function for event listener
 function optionChanged(State) {
