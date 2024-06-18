@@ -126,7 +126,7 @@ function buildCharts(sample) {
     ];
 
     // Render the Bubble Chart
-    Plotly.newPlot('bubble', trace, bubbleLayout);
+    //Plotly.newPlot('bubble', trace, bubbleLayout);
 
 
 // For the Bar Chart, map the otu_ids to a list of strings for your yticks
@@ -152,9 +152,70 @@ function buildCharts(sample) {
 
 
     // Render the Bar Chart
-    Plotly.newPlot('bar', bartrace, barLayout); 
+    //Plotly.newPlot('bar', bartrace, barLayout); 
+
+
+    // For the Polar Chart, map the otu_ids to a list of strings for your yticks
+
+    polarPlotData = {
+        labels: health_condition,
+        datasets: [{
+          label: sample,
+          data: pc_prevalence,
+          backgroundColor:[
+            'rgba(173, 216, 230, 0.5)',
+            'rgba(144, 238, 144, 0.5)',
+            'rgba(255, 165, 0, 0.5)' 
+        ],
+        borderColor: ['black'],
+        borderWidth: 1
+        }]
+
+    }
+
+    //chartData = createChartData(data, sample);
+    const ctx = document.getElementById('myPolarChart').getContext('2d');
+    updateChart(ctx, polarPlotData);
+
   });
 
+}
+
+function createChartData(filteredData, selectedState) {
+  return {
+      labels: filteredData.map(item => item["Health Condition"]),
+      datasets: [{
+          label: `Condition Prevalence (%) in ${selectedState}`,
+          data: filteredData.map(item => item["Condition Prevalence (%)"]),
+          backgroundColor: [
+              'rgba(173, 216, 230, 0.5)',
+              'rgba(144, 238, 144, 0.5)',
+              'rgba(255, 165, 0, 0.5)' 
+          ],
+          borderColor: ['black'],
+          borderWidth: 1
+      }]
+  };
+}
+
+function updateChart(ctx, data) {
+  // If a chart instance already exists, destroy it before creating a new one
+  if (ctx.chart) {
+      ctx.chart.destroy();
+  }
+
+  // Create a new chart instance
+  ctx.chart = new Chart(ctx, {
+      type: 'polarArea',
+      data: data,
+      options: {
+          scales: {
+              r: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
 }
 
 function analyzeHealth(){

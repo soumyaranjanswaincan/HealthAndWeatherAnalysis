@@ -1,9 +1,12 @@
 html,
 body,
 #map-id {
+  padding-left: 24%;
+  padding-right: 24%;
+  margin: 0px;
+  justify-content: center;
+  align-items: center;
   height: 100%;
-  padding: 0;
-  margin: 0;
 }
 body {
   padding: 0;
@@ -22,3 +25,5 @@ mapcontainer {
   align-items: center;      /* Center vertically */
   height: 100vh;            /* Full viewport height */
 }
+
+

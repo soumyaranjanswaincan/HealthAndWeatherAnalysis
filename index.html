@@ -20,14 +20,7 @@
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
   crossorigin=""></script>
 
-   <!-- Marker cluster JavaScript code -->
-  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
-
-  <!-- Marker cluster CSS -->
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
-
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
@@ -41,7 +34,7 @@
       </div>
     </div>
   </div>
-  <div id="map-id" class="col-md-12" style="align-items: center; justify-content: center"></div>
+  <div id="map-id" class="container" ></div>
   <br>
   <div class="container">
     <br>
@@ -60,8 +53,12 @@
         </div>
       </div>
       <div class="col-md-9">
-        <div id="bar"></div>
+        <!-- <div id="bar"></div> -->
+        <canvas id="myPolarChart"></canvas>
       </div>
+    </div>
+    <div>
+      <!-- <canvas id="myPolarChart" width="500" height="500"></canvas> -->
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -72,11 +69,12 @@
   <br>
   <div class="container">
     <div class="col-md-12 p-3 text-center bg-light">
-      <h4>Health and Weather Analysis</h4>
+      <h4>Correlation between Health Conditions and different Weather Factors</h4>
       <p>Use the interactive charts below to explore the relationship between health conditions and weather factors</p>
     </div>
-    <div class="row">
-      <div class="col-md-12 bg-light">
+    <br>
+    <div class="col-md-12">
+      <div class="bg-light">
         <table>
           <tr>
             <td>
@@ -92,7 +90,7 @@
               </div>
             </td>
             <td>
-              <div class="card card-body bg-light">
+              <div class="bg-light">
                 <button id="btnAnalyze" name="Analyze" onclick="analyzeHealth()">Analyze Data</button>
               </div>
             </td>
@@ -100,12 +98,14 @@
         </table>
       </div>
     </div>
+    <br>
     <div class="row">
       <div class="col-md-12">
         <div id="HC_EF_scatter"></div>
       </div>
     </div>
   </div>
+  <br>
 
   <!-- The div that holds our map -->
   <!-- <div id="map-id" class="col-md-12" style="align-items: center; justify-content: center"></div> -->
@@ -114,6 +114,7 @@
   <script type="text/javascript" src="static/js/logic1.js"></script>
   <script type="text/javascript" src="static/js/app.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="polarAreaScript.js"></script>
 </body>
 
 </html>
