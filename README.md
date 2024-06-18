@@ -35,7 +35,7 @@ Explore how variations in temperature, AQI, and clear skies correlate with the o
 Offer insights and recommendations for public health interventions aimed at mitigating the adverse effects of weather conditions on health.
 Conclusion
 
-## By understanding the complex interactions between weather factors and health conditions, we can develop more effective strategies to improve public health outcomes. This project aims to contribute valuable knowledge to the fields of environmental health and epidemiology, ultimately helping to create healthier communities across the USA.
+By understanding the complex interactions between weather factors and health conditions, we can develop more effective strategies to improve public health outcomes. This project aims to contribute valuable knowledge to the fields of environmental health and epidemiology, ultimately helping to create healthier communities across the USA.
 
 
 ## Instructions
