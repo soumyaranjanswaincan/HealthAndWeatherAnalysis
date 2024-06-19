@@ -27,26 +27,38 @@ mapcontainer {
 }
 
 
-      /* Custom styles for Leaflet popups */
-        .leaflet-popup-content {
-          font-size: 14px;
-          color: #333;
-      }
+/* Custom styles for Leaflet popups */
+  .leaflet-popup-content {
+    font-size: 14px;
+    color: #333;
+}
 
-      .leaflet-popup-content h3 {
-          margin-top: 0;
-          color: #2a7ae2;
-      }
+.leaflet-popup-content h3 {
+    margin-top: 0;
+    color: #2a7ae2;
+}
 
-      .leaflet-popup-content p {
-          margin: 0;
-      }
+.leaflet-popup-content p {
+    margin: 0;
+}
 
-      .custom-popup {
-          background-color: #f9f9f9;
-          padding: 10px;
-          border-radius: 8px;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
+.custom-popup {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background-color: #f2f2f2;
+}
 

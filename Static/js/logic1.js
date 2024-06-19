@@ -84,13 +84,14 @@ function popupHTMLData(sample) {
                 <p>Coordinates: ${firstItem.Latitude}, ${firstItem.Longitude}</p>
                 <p>% Clear Days: ${firstItem["% Clear Days"]}</p>
                 <p>Median AQI: ${firstItem["Median AQI"]}</p>
-                <p>Average Temperature (F): ${firstItem["Average Temperature (F)"]}</p>`;
+                <p>Average Temperature (F): ${firstItem["Average Temperature (F)"]}</p>
+                <p><table><tr><td>Health Condition</td><td>Condition Prevalence %</td></tr>`;
 
     // Loop through each item in the data array and build metadata summary
     data.forEach((item) => {
-      html += `<p>Health Condition: ${item["Health Condition"]}; Condition Prevalence %: ${item["Condition Prevalence (%)"]}</p>`;
+      html += `<tr><td> ${item["Health Condition"]}</td><td> ${item["Condition Prevalence (%)"]} </td></tr></p>`;
     });
-
+    html = html + `</table>`
     return html;
   });
 }
