@@ -12,7 +12,7 @@ from flask_cors import CORS
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///../Resources/Output/project3.db")
+engine = create_engine("sqlite:///../Resources/Output/project3.sqlite")
 
 # reflect an existing database into a new model
 Base = automap_base()
@@ -20,7 +20,7 @@ Base = automap_base()
 Base.prepare(autoload_with=engine)
 
 # Save reference to the table
-data_table = Base.classes.project_data
+data_table = Base.classes.data
 
 # Reflect the tables
 metadata = MetaData()
