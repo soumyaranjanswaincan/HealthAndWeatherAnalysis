@@ -34,7 +34,7 @@ function buildStateSummary(sample) {
         panel.append("h6").text(`Health Condition: ${item["Health Condition"]}`);
         panel.append("h6").text(`Condition Prevalence (%): ${item["Condition Prevalence (%)"]}`);
     }); 
-    setMapCoords(firstItem.Latitude,firstItem.Longitude);
+    setMapCoords(firstItem.Latitude,firstItem.Longitude,9);
   });    
 
 }
@@ -57,7 +57,7 @@ function buildOverallSummary() {
     panel.append("h6").text(`Average Temperature: ${data_table.AverageValues.AvgTemperature}`);
     panel.append("h6").text(`Health Conditions: ${data_table.HealthConditions[0]}, ${data_table.HealthConditions[1]}, ${data_table.HealthConditions[2]}`);
     panel.append("h6").text(`Average Condition Prevalence: ${data_table.AverageValues.AvgConditionPrevalence}`);
-    setMapCoords(34.95, -97.27);
+    setMapCoords(34.95, -97.27, 5);
   });    
 
 }

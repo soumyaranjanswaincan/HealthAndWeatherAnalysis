@@ -97,10 +97,10 @@ function popupHTMLData(sample) {
 }
 
 
-function setMapCoords(Latitude,Longitude){
+function setMapCoords(Latitude,Longitude,zoom){
   coords = [Latitude,Longitude];
   //alert(coords);
-  map.setView(coords,5);  
+  map.setView(coords,zoom);  
 }
 
 // Perform an API call to the Citi Bike API to get the station information. Call createMarkers when it completes.
