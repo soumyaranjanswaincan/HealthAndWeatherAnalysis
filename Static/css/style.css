@@ -27,3 +27,26 @@ mapcontainer {
 }
 
 
+      /* Custom styles for Leaflet popups */
+        .leaflet-popup-content {
+          font-size: 14px;
+          color: #333;
+      }
+
+      .leaflet-popup-content h3 {
+          margin-top: 0;
+          color: #2a7ae2;
+      }
+
+      .leaflet-popup-content p {
+          margin: 0;
+      }
+
+      .custom-popup {
+          background-color: #f9f9f9;
+          padding: 10px;
+          border-radius: 8px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+

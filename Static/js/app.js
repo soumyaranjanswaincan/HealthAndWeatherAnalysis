@@ -57,7 +57,7 @@ function buildOverallSummary() {
     panel.append("h6").text(`Average Temperature: ${data_table.AverageValues.AvgTemperature}`);
     panel.append("h6").text(`Health Conditions: ${data_table.HealthConditions[0]}, ${data_table.HealthConditions[1]}, ${data_table.HealthConditions[2]}`);
     panel.append("h6").text(`Average Condition Prevalence: ${data_table.AverageValues.AvgConditionPrevalence}`);
-    setMapCoords(40.73, -74.0059);
+    setMapCoords(34.95, -97.27);
   });    
 
 }

@@ -1,5 +1,5 @@
 let map;
-function createMap(markers) {
+function createMap(markers, heatArray) {
 
   // Create the tile layer that will be the background of our map.
   let streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -19,10 +19,21 @@ function createMap(markers) {
 
   // Create the map object with options.
   map = L.map("map-id", {
-    center: [40.73, -74.0059],
-    zoom: 9,
+    center: [34.95, -97.27],
+    zoom: 5,
     layers: [streetmap, markers]
   });
+
+  var heat = L.heatLayer(heatArray, {
+    radius: 20,
+    blur: 25,
+    maxZoom: 15,
+    gradient: {
+      0.4: 'blue',
+      0.6: 'lime',
+      0.8: 'red'
+    }
+  }).addTo(map);
 
   // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
   L.control.layers(baseMaps, overlayMaps, {
@@ -33,6 +44,7 @@ function createMap(markers) {
 function createMarkers(response) {
   // Initialize an array to hold state markers.
   let stateMarkers = [];
+  let heatArray =[];
 
   // Loop through the state array.
   response.forEach((state, index) => {
@@ -42,6 +54,8 @@ function createMarkers(response) {
     // Create a marker for the state
     let marker = L.marker([state.Latitude, state.Longitude]);
 
+    heatArray.push([state.Latitude, state.Longitude, state["Condition Prevalence (%)"]*100]);
+
     // Add the promise to the marker
     popupContentPromise.then((html_data) => {
       marker.bindPopup(html_data);
@@ -50,9 +64,9 @@ function createMarkers(response) {
     // Add the marker to the stateMarkers array.
     stateMarkers.push(marker);
   });
-
+  //alert(heatArray);
   // Create a layer group that's made from the state markers array, and pass it to the createMap function.
-  createMap(L.layerGroup(stateMarkers));
+  createMap(L.layerGroup(stateMarkers),heatArray);
 }
 
 function popupHTMLData(sample) {
@@ -74,7 +88,7 @@ function popupHTMLData(sample) {
 
     // Loop through each item in the data array and build metadata summary
     data.forEach((item) => {
-      html += `<p>Health Condition: ${item["Health Condition"]}; Condition Prevalence % ${item["Condition Prevalence (%)"]}</p>`;
+      html += `<p>Health Condition: ${item["Health Condition"]}; Condition Prevalence %: ${item["Condition Prevalence (%)"]}</p>`;
     });
 
     return html;
@@ -85,7 +99,7 @@ function popupHTMLData(sample) {
 function setMapCoords(Latitude,Longitude){
   coords = [Latitude,Longitude];
   //alert(coords);
-  map.setView(coords,9);  
+  map.setView(coords,5);  
 }
 
 // Perform an API call to the Citi Bike API to get the station information. Call createMarkers when it completes.
