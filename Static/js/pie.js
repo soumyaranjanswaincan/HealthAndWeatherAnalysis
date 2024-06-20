@@ -1,4 +1,4 @@
-function createLineChart(){
+function createPieLineChart() {
     let url = "http://127.0.0.1:5000/api/v1.0/state_data";
     d3.json(url).then((data) => {
         // Filter data for each health condition
@@ -19,7 +19,7 @@ function createLineChart(){
         var traceObesity = {
             type: 'treemap',
             labels: obesityData.map(item => item["State"]),
-            parents: asthmaData.map(item => item["State Abbriviation"]),
+            parents: obesityData.map(item => item["State Abbriviation"]),
             values: obesityData.map(item => item["Condition Prevalence (%)"]),
             hovertemplate: '<b>%{parents}</b><br>%{values}',
             name: 'Obesity'
@@ -28,7 +28,7 @@ function createLineChart(){
         var traceDepression = {
             type: 'treemap',
             labels: depressionData.map(item => item["State"]),
-            parents: asthmaData.map(item => item["State Abbriviation"]),
+            parents: depressionData.map(item => item["State Abbriviation"]),
             values: depressionData.map(item => item["Condition Prevalence (%)"]),
             hovertemplate: '<b>%{parents}</b><br>%{values}',
             name: 'Depression'
@@ -44,9 +44,21 @@ function createLineChart(){
     
         // Build dropdown menu
         var dropdownOptions = [
-            { label: 'Asthma', method: updateChart, args: ['Asthma'] },
-            { label: 'Obesity', method: updateChart, args: ['Obesity'] },
-            { label: 'Depression', method: updateChart, args: ['Depression'] }
+            {
+                label: 'Asthma',
+                method: 'restyle',
+                args: ['values', [asthmaData.map(item => item["Condition Prevalence (%)"])]]
+            },
+            {
+                label: 'Obesity',
+                method: 'restyle',
+                args: ['values', [obesityData.map(item => item["Condition Prevalence (%)"])]]
+            },
+            {
+                label: 'Depression',
+                method: 'restyle',
+                args: ['values', [depressionData.map(item => item["Condition Prevalence (%)"])]]
+            }
         ];
     
         // Add dropdown menu to layout
@@ -56,10 +68,10 @@ function createLineChart(){
             showactive: true,
         }];
     
-        //Default view is asthma
+        // Default view is asthma
         Plotly.newPlot('pieplot', data, layout);
     
-        //Update based on dropdown
+        // Update based on dropdown
         function updateChart(selectedCondition) {
             switch (selectedCondition) {
                 case 'Asthma':
@@ -76,4 +88,5 @@ function createLineChart(){
                     break;
             }
         }
-    })};
+    });
+};
