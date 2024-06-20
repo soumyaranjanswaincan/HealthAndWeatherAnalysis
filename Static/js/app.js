@@ -101,61 +101,7 @@ function buildCharts(sample) {
   console.log("Unique Health Conditions:", health_condition);
   console.log("Average Prevalence Percentages:", pc_prevalence);
 
-    // Build a Bubble Chart
-    let bubbleLayout = {
-      title: 'Health condition prevalence in ' + sample,
-      xaxis: { title: 'Health Condition' },
-      yaxis: { title: 'Prevalence' },
-      margin: { t: 40},
-      paper_bgcolor: 'rgba(230,230,230,1)',
-      plot_bgcolor: 'rgba(230,230,230,1)'
-    };
-
-    let trace = [
-      {
-        x: health_condition,
-        y: pc_prevalence,
-        //text: otu_labels,
-        mode: 'markers',
-        marker: {
-          size: pc_prevalence,
-          color: health_condition,
-          colorscale: 'Earth'
-        }
-      }
-    ];
-
-    // Render the Bubble Chart
-    //Plotly.newPlot('bubble', trace, bubbleLayout);
-
-
-// For the Bar Chart, map the otu_ids to a list of strings for your yticks
-    let yticks = health_condition; 
-
-    // Build a Bar Chart
-    // Don't forget to slice and reverse the input data appropriately
-    let bartrace = [
-      {
-        y: yticks,
-        x: pc_prevalence,
-        //text: otu_labels.slice(0, 10).reverse(),
-        type: 'bar',
-        orientation: 'h',
-        colors: 'Grey'
-      }
-    ];
-
-    let barLayout = {
-      title: 'Top 3 health conditions and their prevalence',
-      margin: { t: 30, l: 150 }
-    };
-
-
-    // Render the Bar Chart
-    //Plotly.newPlot('bar', bartrace, barLayout); 
-
-
-    // For the Polar Chart, map the otu_ids to a list of strings for your yticks
+     // For the Polar Chart, map the otu_ids to a list of strings for your yticks
 
     polarPlotData = {
         labels: health_condition,
