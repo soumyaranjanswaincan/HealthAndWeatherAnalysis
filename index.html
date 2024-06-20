@@ -47,15 +47,17 @@
     </div>
   </div>
   <div>
-    <div id="plot"></div>
+    <div class="container" id="treeMap"></div>
   </div>
   <br>
-  <div id="map-id" class="container" ></div>
+  <div>
+    <div id="plot"></div>
+  </div>
   <br>
   <div class="container">
     <br>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <div class="card card-body bg-light">
           <h6>State:</h6>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
@@ -68,11 +70,14 @@
           <div id="sample-metadata" class="card-body"></div>
         </div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-5" style="align-content: center;">
         <canvas id="myPolarChart"></canvas>
       </div>
     </div>
   </div>
+  <br>
+  <br>
+  <div id="map-id" class="container" ></div>
   <br>
   <div class="container">
     <div class="col-md-12 p-3 text-center bg-light">
@@ -127,6 +132,7 @@
   <script type="text/javascript" src="static/js/lineScript.js"></script>
   <script type="text/javascript" src="static/js/logic1.js"></script>
   <script type="text/javascript" src="static/js/app.js"></script>
+  <script type="text/javascript" src="static/js/treeMap.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </body>
 

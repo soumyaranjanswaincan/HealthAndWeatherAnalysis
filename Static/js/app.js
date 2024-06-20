@@ -385,6 +385,7 @@ function init() {
     //buildChartsbyHealthCondition('Current Asthma');
     analyzeHealth();
     createLineChart();
+    createTreeMap();
 
   });
 }

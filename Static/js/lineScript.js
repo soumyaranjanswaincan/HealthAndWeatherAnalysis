@@ -67,7 +67,6 @@
         // Creating plot
         Plotly.newPlot('plot', plotData, {
             title: 'Condition and Weather Data by State',
-            xaxis: {title: 'State'},
             yaxis: {title: 'Condition Prevalence Percent'},
             yaxis2: {
                 overlaying: 'y',
