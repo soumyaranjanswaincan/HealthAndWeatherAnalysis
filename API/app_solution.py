@@ -22,6 +22,8 @@ Base.prepare(autoload_with=engine)
 # Save reference to the table
 data_table = Base.classes.data
 
+data_table_population = Base.classes.population
+
 # Reflect the tables
 metadata = MetaData()
 metadata.reflect(bind=engine)
@@ -85,6 +87,46 @@ def allStates():
 
     return jsonify(states)
 
+@app.route("/api/v1.0/state_population_data")
+def state_population_data():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a list of passenger data including the state, latitude, and longitude of each passenger"""
+    # Query all states
+    results = session.query(
+        data_table.State,
+        getattr(data_table, "State Abbriviation"),
+        getattr(data_table, "Health Condition"),
+        getattr(data_table, "Condition Prevalence (%)"),
+        getattr(data_table, "Median AQI"),
+        getattr(data_table, "% Clear Days"),
+        getattr(data_table, "Average Temperature (F)"),
+        data_table.Latitude, 
+        data_table.Longitude,
+        data_table_population.Population
+        ).join(data_table_population, data_table.State == data_table_population.State).all()
+
+    session.close()
+
+    # Create a dictionary from the row data and append to a list of all_passengers
+    states = []
+    for State, State_abbr, Health_condn, Cond_preval_pc, Median_AQI, pc_clear_days, Avg_temp, Latitude, Longitude, Population in results:
+        states_dict = {}
+        states_dict["State"] = State
+        states_dict["State Abbriviation"] = State_abbr
+        states_dict["Health Condition"] = Health_condn
+        states_dict["Condition Prevalence (%)"] = Cond_preval_pc
+        states_dict["Median AQI"] = Median_AQI
+        states_dict["% Clear Days"] = pc_clear_days
+        states_dict["Average Temperature (F)"] = Avg_temp
+        states_dict["Latitude"] = Latitude
+        states_dict["Longitude"] = Longitude
+        states_dict["Population"] = Population
+        states.append(states_dict)
+
+    return jsonify(states)
+
 @app.route("/api/v1.0/state_names")
 def States():
     # Create our session (link) from Python to the DB
@@ -100,6 +142,8 @@ def States():
     states = [{"State": state[0]} for state in results]
 
     return jsonify(states)
+
+
 
 
 @app.route("/api/v1.0/overall_state_summary")
