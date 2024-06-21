@@ -35,8 +35,8 @@
 
         // Traces for weather conditions
         var traceAQI = {
-            x: data.map(item => item.State),
-            y: data.map(item => item.Median_AQI),
+            x: data.map(item => item["State"]),
+            y: data.map(item => item["Median AQI"]),
             mode: 'markers',
             type: 'scatter',
             name: 'Median AQI',

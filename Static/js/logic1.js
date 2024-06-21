@@ -79,13 +79,13 @@ function popupHTMLData(sample) {
 
     let firstItem = data[0];
 
-    let html = `<h3>${firstItem.State}</h3>
-                <hr>
+    let html = `<h3>${firstItem.State} (${firstItem["State Abbriviation"]})</h3>
                 <p>Coordinates: ${firstItem.Latitude}, ${firstItem.Longitude}</p>
                 <p>% Clear Days: ${firstItem["% Clear Days"]}</p>
                 <p>Median AQI: ${firstItem["Median AQI"]}</p>
-                <p>Average Temperature (F): ${firstItem["Average Temperature (F)"]}</p>
-                <p><table><tr><td>Health Condition</td><td>Condition Prevalence %</td></tr>`;
+                <p>Average Temperature (F): ${firstItem["Average Temperature (F)"]}</p><br>
+                <p><table class="table table-striped table-bordered table-hover table-sm">
+                <thead class="thead-dark"><tr><th>Health Condition</th><th>Condition Prevalence %</th></th></thead>`;
 
     // Loop through each item in the data array and build metadata summary
     data.forEach((item) => {

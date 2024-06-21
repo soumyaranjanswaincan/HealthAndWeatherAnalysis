@@ -13,27 +13,36 @@ function buildStateSummary(sample) {
 
     let firstItem = data[0];
 
-    // Print specific information from the first item
-    panel.append("h6").text(`State: ${firstItem.State}`);
-    panel.append("h6").text(`State Abbreviation: ${firstItem["State Abbriviation"]}`);
-    panel.append("h6").text(`Latitude: ${firstItem.Latitude}`);
-    panel.append("h6").text(`Longitude: ${firstItem.Longitude}`);
-    panel.append("h6").text(`% Clear Days: ${firstItem["% Clear Days"]}`);
-    panel.append("h6").text(`Average Temperature (F): ${firstItem["Average Temperature (F)"]}`);
-    panel.append("h6").text(`Median AQI: ${firstItem["Median AQI"]}`);
+    // Create a Bootstrap card for the main state information
+    let card = panel.append("div").attr("class", "card mb-3");
+
+    // Create a card body
+    let cardBody = card.append("div").attr("class", "card-body");
+
+    // Append state information as card titles and text
+    cardBody.append("h5").attr("class", "card-title").text(`State: ${firstItem.State}`);
+    cardBody.append("h6").attr("class", "card-subtitle mb-2 text-muted").text(`State Abbreviation: ${firstItem["State Abbriviation"]}`);
+    cardBody.append("p").attr("class", "card-text").html(`
+      <strong>Latitude:</strong> ${firstItem.Latitude} <br>
+      <strong>Longitude:</strong> ${firstItem.Longitude} <br>
+      <strong>% Clear Days:</strong> ${firstItem["% Clear Days"]} <br>
+      <strong>Average Temperature (F):</strong> ${firstItem["Average Temperature (F)"]} <br>
+      <strong>Median AQI:</strong> ${firstItem["Median AQI"]}
+    `);
 
     // Loop through each item in the data array and build metadata summary
     data.forEach((item) => {
-      // Create a <div> element for each item's metadata
-      let itemDiv = panel.append("div")
-        .style("border", "1px solid #ccc")
-        .style("padding", "1px")
-        .style("margin-bottom", "1px");
+      // Create a Bootstrap card for each health condition
+      let itemCard = panel.append("div").attr("class", "card mb-2");
 
-      // Append key-value pairs as <h6> elements inside the <div>
-        panel.append("h6").text(`Health Condition: ${item["Health Condition"]}`);
-        panel.append("h6").text(`Condition Prevalence (%): ${item["Condition Prevalence (%)"]}`);
+      // Create a card body
+      let itemCardBody = itemCard.append("div").attr("class", "card-body");
+
+      // Append health condition information as card titles and text
+      itemCardBody.append("h6").attr("class", "card-title").text(`Health Condition: ${item["Health Condition"]}`);
+      itemCardBody.append("p").attr("class", "card-text").text(`Condition Prevalence (%): ${item["Condition Prevalence (%)"]}`);
     }); 
+
     setMapCoords(firstItem.Latitude,firstItem.Longitude,9);
   });    
 
@@ -50,13 +59,23 @@ function buildOverallSummary() {
     // Use `.html("") to clear any existing metadata
     panel.html("");
 
-    // Print specific information from the first item
-    panel.append("h6").text(`Total States: ${data_table.TotalStates}`);
-    panel.append("h6").text(`Average Clear Days: ${data_table.AverageValues.AvgClearDays}`);
-    panel.append("h6").text(`Average Median AQI: ${data_table.AverageValues.AvgMedianAQI}`);
-    panel.append("h6").text(`Average Temperature: ${data_table.AverageValues.AvgTemperature}`);
-    panel.append("h6").text(`Health Conditions: ${data_table.HealthConditions[0]}, ${data_table.HealthConditions[1]}, ${data_table.HealthConditions[2]}`);
-    panel.append("h6").text(`Average Condition Prevalence: ${data_table.AverageValues.AvgConditionPrevalence}`);
+    // Create a Bootstrap card for the overall summary information
+    let card = panel.append("div").attr("class", "card mb-3");
+
+    // Create a card body
+    let cardBody = card.append("div").attr("class", "card-body");
+
+    // Append overall summary information as card titles and text
+    cardBody.append("h5").attr("class", "card-title").text("Overall State Summary");
+    cardBody.append("h6").attr("class", "card-subtitle mb-2 text-muted").text(`Total States: ${data_table.TotalStates}`);
+    cardBody.append("p").attr("class", "card-text").html(`
+      <strong>Average Clear Days:</strong> ${data_table.AverageValues.AvgClearDays} <br>
+      <strong>Average Median AQI:</strong> ${data_table.AverageValues.AvgMedianAQI} <br>
+      <strong>Average Temperature (F):</strong> ${data_table.AverageValues.AvgTemperature} <br>
+      <strong>Health Conditions:</strong> ${data_table.HealthConditions.join(', ')} <br>
+      <strong>Average Condition Prevalence:</strong> ${data_table.AverageValues.AvgConditionPrevalence}
+    `);
+   
     setMapCoords(34.95, -97.27, 5);
   });    
 
