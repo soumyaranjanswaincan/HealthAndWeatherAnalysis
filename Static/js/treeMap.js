@@ -78,7 +78,7 @@ function createTreeMap() {
                 }],
                 direction: 'down',
                 showactive: true,
-                type: 'buttons'
+                type: 'dropdown'
             }]
         };
 
