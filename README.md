@@ -89,11 +89,12 @@ This Flask API provides access to a dataset integrated with health conditions an
    -  /api/v1.0/state_data_byHealthCondn/Obesity
    -  /api/v1.0/state_population_data
 
-## Visualization, Setup and Navigation
+## Visualization, Setup and Navigation:
+To access all scripts containing interactive visualizations' elements please 
 
 ### Navigation : ../WeatherAndHealthAnalysis/index.html
 
-### Visualizations:
+### Visualizations Examples:
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/31beb155-5fd3-4ae8-9603-9cdad1fe3d6d)
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/c02e06f4-3977-4793-a556-dbad5420efd0)
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/9016a202-3ecc-4570-a074-69c10e930b00)
