@@ -81,10 +81,28 @@ This Flask API provides access to a dataset integrated with health conditions an
    ```bash
    python app_solution.py
 4. The API will start running on `http://localhost:5000/`.
+5. List of API's:
+   -  /api/v1.0/state_names
+   -  /api/v1.0/state_data
+   -  /api/v1.0/state_data/Alabama
+   -  /api/v1.0/overall_state_summary
+   -  /api/v1.0/state_data_byHealthCondn/Obesity
+   -  /api/v1.0/state_population_data
 
-## Vizualiaztiona Setup and Navigation
+## Visualization, Setup and Navigation
 
+### Navigation : ../WeatherAndHealthAnalysis/index.html
 
+### Visualizations:
+![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/31beb155-5fd3-4ae8-9603-9cdad1fe3d6d)
+![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/c02e06f4-3977-4793-a556-dbad5420efd0)
+![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/9016a202-3ecc-4570-a074-69c10e930b00)
+![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/16ecfc80-d0bf-4808-b630-1b2d0dd87b7c)
+![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/1d49be0d-5c90-44b1-9e02-6147eac528d6)
+
+## References
+- https://leafletjs.com/
+- UofT Bootcamp activities
 
 ## Conclusion
 By understanding the complex interactions between weather factors and health conditions, we can develop more effective strategies to improve public health outcomes. This project aims to contribute valuable knowledge to the fields of environmental health and epidemiology, ultimately helping to create healthier communities across the USA.
