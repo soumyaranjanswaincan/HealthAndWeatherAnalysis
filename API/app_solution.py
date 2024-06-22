@@ -47,7 +47,8 @@ def welcome():
         f"/api/v1.0/state_data<br/>"
         f"/api/v1.0/state_data/Alabama<br/>"
         f"/api/v1.0/overall_state_summary<br/>"
-        f"/api/v1.0/state_data_byHealthCondn/Obesity"
+        f"/api/v1.0/state_data_byHealthCondn/Obesity<br/>"
+        f"/api/v1.0/state_population_data"
     )
 
 
