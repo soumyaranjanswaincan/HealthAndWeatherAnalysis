@@ -179,13 +179,50 @@ To run the webpage containing visualizations please navigate to this folder: `..
 Note: Before, please ensure that your local api app is running. 
 
 ### Visualizations Examples:
+#### Tree Map:
+Highlights the states with the highest number of the analyzed health issues on a national level
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/31beb155-5fd3-4ae8-9603-9cdad1fe3d6d)
+#### Scatterplot:
+Outlines the trends of health issues versus the weather trigger on a national level
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/c02e06f4-3977-4793-a556-dbad5420efd0)
+#### Polar Area Chart:
+Visualizes the prevalence of each health problem and relevant weather factors on a state level
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/9016a202-3ecc-4570-a074-69c10e930b00)
+#### Heat Map:
+Identifies the states with the highest percentage of health problems relative to their location and weather
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/16ecfc80-d0bf-4808-b630-1b2d0dd87b7c)
+#### Line Plot:
+Uses a line of best-fit to compare one health condition and one weather trigger on a national level
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/1d49be0d-5c90-44b1-9e02-6147eac528d6)
 
-## References
+### Conclusions:
+Healthcare professionals should invest in data collection and storage technologies as clear links can be found between certain weather conditions and health issues at a large scale. These projects can assist in resource allocation and preventative measures.
+
+### Data Sources:
+Data uses Census.gov for population analysis and sourcing, National Oceaninc and Atmospheric Administration: Center for Environmental Information for the weather data.
+Kaggle is also used to source weather data, while AQI is retrieved from CurrentResults.com.
+
+#### Census.gov:
+https://www.census.gov/
+
+#### National Oceaninc and Atmospheric Administration: Center for Environmental Information:
+https://www.ngdc.noaa.gov/#:~:text=NOAA%20National%20Centers%20for%20Environmental%20Information%20(NCEI)%20is%20responsible%20for,of%20geophysical%20data%20and%20information.
+
+#### Kaggle:
+https://www.kaggle.com/
+
+#### Current Results:
+https://www.currentresults.com/
+
+### Disclaimers and Usage:
+#### Disclaimer:
+We are not healthcare professionals. This data and conclusions drawn are from the perspective of data analysts - independent conclusions should be formed when interpretting the data.
+
+#### Usage:
+This data the app sources from specifies that this content is for educational purposes only. This app purpose is also for educational usage only. This app is not to be monetized and is not a substitute for industry-standard market data.
+
+## Other References and Libraries
+-www.d3-graph-gallery.com/index.html
 - www.leafletjs.com
 - www.kaggle.com
 - www.noaa.gov
