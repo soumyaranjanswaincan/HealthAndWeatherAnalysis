@@ -134,25 +134,17 @@ Provides visualizations and summaries of various health conditions and environme
 - **Overall Summary**: Provides aggregated data across all states.
 - **Dynamic Charts**: Visualizes data comparisons between health conditions and environmental factors.
 
-#### Details:
+#### Details and Key Functions:
 
-1. `buildStateSummary(sample)`:
-   - Fetches and displays state-specific data.
-   - Visualizes data in Bootstrap cards within a metadata panel.
+1. **`buildStateSummary(sample)`**:Fetches and displays state-specific data. Visualizes data in Bootstrap cards within a metadata panel.
 
-2. `buildOverallSummary()`:
-   - Fetches and displays summary data for all states.
-   - Summarizes average conditions and environmental factors.
+2. **`buildOverallSummary()`**: Fetches and displays summary data for all states. Summarizes average conditions and environmental factors.
 
-3. `buildCharts(sample)`:
-   - Fetches data for either a specific state or all states.
-   - Displays a polar area chart of average health condition prevalence.
+3. **`buildCharts(sample)`**: Fetches data for either a specific state or all states. Displays a polar area chart of average health condition prevalence.
 
-4. `init()`:
-   - Initializes the dashboard by populating dropdown menus and loading initial data visualizations.
+4. **`init()`**: Initializes the dashboard by populating dropdown menus and loading initial data visualizations.
 
-5. `optionChanged(State)** and **optionHealthChanged(State)`:
-   - Event listeners for dropdown menu changes to update visualizations based on selected state or health condition.
+5. **`optionChanged(State)** and **optionHealthChanged(State)`**: Event listeners for dropdown menu changes to update visualizations based on selected state or health condition.
 
 
 ### Interactive Correlation Visualization:
@@ -165,6 +157,21 @@ The interactive correlation scatter plot examines the relationships between heal
 - **Regression Analysis**: Computes and displays a regression line on the scatter plot, indicating the trend between the selected variables. The `linearRegression(x, y)` function is used to calculate the necessary statistical parameters for this line.
 
 ### Interactive Heat Map:
+This section outlines the core functionalities of the interactive state maps and heatmap visualizations, along with the key JavaScript functions used to implement these features using the Leaflet library.
+
+#### Functionality
+
+- **Basic Map Setup**: Initializes the map and sets up the base tile layer using OpenStreetMap tiles to provide geographical context.
+- **Data Fetching**: Dynamically retrieves state-specific data from a local API and uses it to populate the map with markers and heatmaps.
+- **Marker Clustering**: Enhances map readability and performance through clustering of markers, which is particularly useful for displaying large datasets.
+- **Heatmap Visualization**: Employs a heatmap layer to represent the intensity of various data points such as disease prevalence or environmental conditions, making it easy to visualize areas of high concentration.
+
+#### Details and Key Functions:
+
+1. **`createMap(markers, heatArray)`**: Establishes the base and overlay layers on the map, configures the heatmap settings, and integrates layer controls for user interaction.
+2. **`createMarkers(response)`**: Interprets the API response to generate markers and a heatmap array. These elements are subsequently utilized by `createMap` to render the visual representations on the map.
+3. **`popupHTMLData(sample)`**: Requests and formats detailed data for a specific state. This information is displayed in a popup when a marker is clicked, providing additional context to the user.
+4. **`setMapCoords(Latitude, Longitude, zoom)`**: Modifies the map’s center and zoom level based on user interactions or automated processes, ensuring the map focuses on relevant areas selected in the drop down box.
 
 ### Execution: 
 To run the webpage containing visualizations please navigate to this folder: `../WeatherAndHealthAnalysis/index.html`; and open `index.html` file in your browser. 
