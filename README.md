@@ -144,7 +144,7 @@ Note: Before, please ensure that your local api app is running.
 
 ## References
 - leafletjs.com
-- kaggel.com
+- kaggle.com
 - www.noaa.gov
 - www.census.gov
 - UofT Bootcamp activities
