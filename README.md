@@ -95,6 +95,7 @@ To access all scripts containing interactive visualizations' elements please nav
 ### Libraries Required:
 - **D3.js**: For fetching data from the API.
 - **Plotly.js**: For creating the visualization.
+- **Bootstrap**: For styling and layout enhancements.
 
 ### Interactive Scatter Plot:
 The `createLineChart` function is designed to fetch and visualize state-specific data regarding health conditions and weather patterns. This visualization includes prevalence percentages of Current Asthma, Obesity, and Depression, along with weather-related data such as Median AQI, Percentage of Clear Days, and Average Temperature.
@@ -105,7 +106,7 @@ The `createLineChart` function is designed to fetch and visualize state-specific
 - **Data Filtering**: It separates the fetched data into categories based on health conditions.
 - **Data Visualization**: Utilizes Plotly to plot the data in a scatter plot format.
 
-#### Plot Details
+#### Plot Details:
 
 - The plot contains separate traces for each category, allowing for an integrated view of health and environmental factors by state. 
 - Dual y-axes are used to display condition prevalence percentages and weather-related data on the same plot but with different scales.
@@ -113,22 +114,57 @@ The `createLineChart` function is designed to fetch and visualize state-specific
 ### Interactive Tree Map Visualization:
 The `createTreeMap` function is designed to fetch and visualize data related to the prevalence of certain health conditions (Current Asthma, Obesity, Depression) across different states, adjusted by population. It uses a TreeMap representation to show the magnitude of each condition, which allows for quick visual comparisons.
 
-#### Functionality
+#### Functionality:
 
 - **Data Fetching**: Retrieves data from a local API endpoint (`http://127.0.0.1:5000/api/v1.0/state_population_data`).
 - **Data Processing**: Filters the data based on health conditions and calculates values by multiplying prevalence percentages by state populations.
 - **Dynamic Visualization**: Uses Plotly to create a dynamic treemap that can switch views between the different health conditions using animation frames.
 
-#### Visualization Details
+#### Visualization Details:
 
 - **Treemap Configuration**: Each health condition is represented by a treemap where each state is a node. The size of the node is proportional to the adjusted prevalence of the condition in that state.
 - **Interactivity**: Users can switch between different health conditions using a dropdown menu integrated into the treemap.
 
-### Interactive Polar Area Chart:
+### Interactive Polar Area Chart and Summary Table:
+Provides visualizations and summaries of various health conditions and environmental factors across U.S. states. It fetches data dynamically from a local API and presents information using interactive polar area chart and metadata panels.
 
-### Interactive Map:
+#### Functionality:
+
+- **State-Specific Summaries**: Displays detailed information for a selected state including health conditions and environmental factors.
+- **Overall Summary**: Provides aggregated data across all states.
+- **Dynamic Charts**: Visualizes data comparisons between health conditions and environmental factors.
+
+#### Details:
+
+1. `buildStateSummary(sample)`:
+   - Fetches and displays state-specific data.
+   - Visualizes data in Bootstrap cards within a metadata panel.
+
+2. `buildOverallSummary()`:
+   - Fetches and displays summary data for all states.
+   - Summarizes average conditions and environmental factors.
+
+3. `buildCharts(sample)`:
+   - Fetches data for either a specific state or all states.
+   - Displays a polar area chart of average health condition prevalence.
+
+4. `init()`:
+   - Initializes the dashboard by populating dropdown menus and loading initial data visualizations.
+
+5. `optionChanged(State)** and **optionHealthChanged(State)`:
+   - Event listeners for dropdown menu changes to update visualizations based on selected state or health condition.
+
 
 ### Interactive Correlation Visualization:
+The interactive correlation scatter plot examines the relationships between health conditions and environmental factors across U.S. states. It is designed to visualize how different environmental factors might influence the prevalence of specific health conditions, helping to uncover potential correlations.
+
+#### Functionality:
+
+ **Data Fetching and Processing**: Fetches state-specific data based on the selected health condition and environmental factor, then calculates averages for display. Utilizes the `analyzeHealth()` function for data fetching and dynamic updates.
+- **Dynamic Visualization**: Allows users to dynamically select a health condition and an environmental factor to visualize their correlation across states. This is managed through updates within the `analyzeHealth()` function, which re-renders the scatter plot based on user selections.
+- **Regression Analysis**: Computes and displays a regression line on the scatter plot, indicating the trend between the selected variables. The `linearRegression(x, y)` function is used to calculate the necessary statistical parameters for this line.
+
+### Interactive Heat Map:
 
 ### Execution: 
 To run the webpage containing visualizations please navigate to this folder: `../WeatherAndHealthAnalysis/index.html`; and open `index.html` file in your browser. 
