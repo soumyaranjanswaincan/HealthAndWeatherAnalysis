@@ -128,7 +128,7 @@ The `createTreeMap` function is designed to fetch and visualize data related to 
 
 ### Interactive Map:
 
-### Interactive Linear Regression Visualization:
+### Interactive Correlation Visualization:
 
 ### Execution: 
 To run the webpage containing visualizations please navigate to this folder: `../WeatherAndHealthAnalysis/index.html`; and open `index.html` file in your browser. 
