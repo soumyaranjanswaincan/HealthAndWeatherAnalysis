@@ -186,8 +186,8 @@ Note: Before, please ensure that your local api app is running.
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/1d49be0d-5c90-44b1-9e02-6147eac528d6)
 
 ## References
-- leafletjs.com
-- kaggle.com
+- www.leafletjs.com
+- www.kaggle.com
 - www.noaa.gov
 - www.census.gov
 - UofT Bootcamp activities
