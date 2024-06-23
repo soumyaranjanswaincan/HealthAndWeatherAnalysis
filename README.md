@@ -90,9 +90,50 @@ This Flask API provides access to a dataset integrated with health conditions an
    -  /api/v1.0/state_population_data
 
 ## Visualization, Setup and Navigation:
-To access all scripts containing interactive visualizations' elements please 
+To access all scripts containing interactive visualizations' elements please navigate to `static` and then `js` folders.
 
-### Navigation : ../WeatherAndHealthAnalysis/index.html
+### Libraries Required:
+- **D3.js**: For fetching data from the API.
+- **Plotly.js**: For creating the visualization.
+
+### Interactive Scatter Plot:
+The `createLineChart` function is designed to fetch and visualize state-specific data regarding health conditions and weather patterns. This visualization includes prevalence percentages of Current Asthma, Obesity, and Depression, along with weather-related data such as Median AQI, Percentage of Clear Days, and Average Temperature.
+
+#### Functionality:
+
+- **Data Fetching**: The function retrieves data from a local API endpoint (`http://127.0.0.1:5000/api/v1.0/state_data`).
+- **Data Filtering**: It separates the fetched data into categories based on health conditions.
+- **Data Visualization**: Utilizes Plotly to plot the data in a scatter plot format.
+
+#### Plot Details
+
+- The plot contains separate traces for each category, allowing for an integrated view of health and environmental factors by state. 
+- Dual y-axes are used to display condition prevalence percentages and weather-related data on the same plot but with different scales.
+
+### Interactive Tree Map Visualization:
+The `createTreeMap` function is designed to fetch and visualize data related to the prevalence of certain health conditions (Current Asthma, Obesity, Depression) across different states, adjusted by population. It uses a TreeMap representation to show the magnitude of each condition, which allows for quick visual comparisons.
+
+#### Functionality
+
+- **Data Fetching**: Retrieves data from a local API endpoint (`http://127.0.0.1:5000/api/v1.0/state_population_data`).
+- **Data Processing**: Filters the data based on health conditions and calculates values by multiplying prevalence percentages by state populations.
+- **Dynamic Visualization**: Uses Plotly to create a dynamic treemap that can switch views between the different health conditions using animation frames.
+
+#### Visualization Details
+
+- **Treemap Configuration**: Each health condition is represented by a treemap where each state is a node. The size of the node is proportional to the adjusted prevalence of the condition in that state.
+- **Interactivity**: Users can switch between different health conditions using a dropdown menu integrated into the treemap.
+
+### Interactive Polar Area Chart:
+
+### Interactive Map:
+
+### Interactive Linear Regression Visualization:
+
+### Execution: 
+To run the webpage containing visualizations please navigate to this folder: `../WeatherAndHealthAnalysis/index.html`; and open `index.html` file in your browser. 
+
+Note: Before, please ensure that your local api app is running. 
 
 ### Visualizations Examples:
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/31beb155-5fd3-4ae8-9603-9cdad1fe3d6d)
@@ -102,10 +143,11 @@ To access all scripts containing interactive visualizations' elements please
 ![image](https://github.com/soumyaranjanswaincan/HealthAndWeatherAnalysis/assets/82301665/1d49be0d-5c90-44b1-9e02-6147eac528d6)
 
 ## References
-- https://leafletjs.com/
+- leafletjs.com
+- kaggel.com
+- www.noaa.gov
+- www.census.gov
 - UofT Bootcamp activities
 
 ## Conclusion
 By understanding the complex interactions between weather factors and health conditions, we can develop more effective strategies to improve public health outcomes. This project aims to contribute valuable knowledge to the fields of environmental health and epidemiology, ultimately helping to create healthier communities across the USA.
-
-
