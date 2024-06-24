@@ -12,7 +12,7 @@ function createMap(markers, heatArray) {
     "Street Map": streetmap
   };
 
-  // Create an overlayMaps object to hold the bikeStations layer.
+  // Create an overlayMaps object to hold the state layer.
   let overlayMaps = {
     "States": markers
   };
@@ -64,7 +64,6 @@ function createMarkers(response) {
     // Add the marker to the stateMarkers array.
     stateMarkers.push(marker);
   });
-  //alert(heatArray);
   // Create a layer group that's made from the state markers array, and pass it to the createMap function.
   createMap(L.layerGroup(stateMarkers),heatArray);
 }
@@ -103,5 +102,5 @@ function setMapCoords(Latitude,Longitude,zoom){
   map.setView(coords,zoom);  
 }
 
-// Perform an API call to the Citi Bike API to get the station information. Call createMarkers when it completes.
+// Perform an API call to the state data. Call createMarkers when it completes.
 d3.json("http://127.0.0.1:5000/api/v1.0/state_data").then(createMarkers);

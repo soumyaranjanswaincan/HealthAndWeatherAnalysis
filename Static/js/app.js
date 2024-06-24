@@ -376,14 +376,7 @@ function init() {
         .attr("value", state);  // Set the value attribute of the option to the state name
     });
 
-        // Select the dropdown menu using D3
-/*     let dropdown2 = d3.select("#selHealthCondn");
-
-    dropdown2.append("option").text("Current Asthma").attr("value", "Current Asthma");
-    dropdown2.append("option").text("Depression").attr("value", "Depression");
-    dropdown2.append("option").text("Obesity").attr("value", "Obesity"); */
-
-            // Select the dropdown menu using D3
+    // Select the dropdown menu using D3
     let dropdownHC = d3.select("#selHealthConditon");
 
     dropdownHC.append("option").text("Current Asthma").attr("value", "Current Asthma");
@@ -401,7 +394,6 @@ function init() {
     State = stateNames[0];
     buildOverallSummary();
     buildCharts('All States');
-    //buildChartsbyHealthCondition('Current Asthma');
     analyzeHealth();
     createLineChart();
     createTreeMap();
@@ -413,8 +405,6 @@ function init() {
 // Function for event listener
 function optionChanged(State) {
   // Build charts and metadata panel each time a new sample is selected
-  //buildCharts(State);
-  //alert(State);
   if (State == 'All States'){
     buildOverallSummary(); 
     buildCharts('All States');

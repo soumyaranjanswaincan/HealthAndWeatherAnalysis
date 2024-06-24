@@ -57,7 +57,7 @@ def allStates():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a list of passenger data including the state, latitude, and longitude of each passenger"""
+    """Return a list of data for all records"""
     # Query all states
     results = session.query(
         data_table.State,
@@ -73,7 +73,7 @@ def allStates():
 
     session.close()
 
-    # Create a dictionary from the row data and append to a list of all_passengers
+    # Create a dictionary from the row data and append to a list
     states = []
     for State, State_abbr, Health_condn, Cond_preval_pc, Median_AQI, pc_clear_days, Avg_temp, Latitude, Longitude in results:
         states_dict = {}
@@ -95,7 +95,7 @@ def state_population_data():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a list of passenger data including the state, latitude, and longitude of each passenger"""
+    """Return a list for all records including population"""
     # Query all states
     results = session.query(
         data_table.State,
@@ -112,7 +112,7 @@ def state_population_data():
 
     session.close()
 
-    # Create a dictionary from the row data and append to a list of all_passengers
+    # Create a dictionary from the row data and append to a list
     states = []
     for State, State_abbr, Health_condn, Cond_preval_pc, Median_AQI, pc_clear_days, Avg_temp, Latitude, Longitude, Population in results:
         states_dict = {}
@@ -135,13 +135,13 @@ def States():
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a list of passenger data including the state, latitude, and longitude of each passenger"""
+    """Return a list of state names"""
     # Query all passengers
     results = session.query(distinct(data_table.State)).all()
 
     session.close()
 
-    # Create a dictionary from the row data and append to a list of all_passengers
+    # Create a dictionary from the row data and append to a list of state names
     states = [{"State": state[0]} for state in results]
 
     return jsonify(states)
@@ -189,7 +189,7 @@ def State_info(state_name):
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a list of passenger data including the state, latitude, and longitude of each passenger"""
+    """Return all records for a given state"""
     # Query all states
     results = session.query(
         data_table.State,
@@ -205,7 +205,7 @@ def State_info(state_name):
 
     session.close()
 
-    # Create a dictionary from the row data and append to a list of all_passengers
+    # Create a dictionary from the row data and append to a list
     states = []
     for State, State_abbr, Health_condn, Cond_preval_pc, Median_AQI, pc_clear_days, Avg_temp, Latitude, Longitude in results:
         states_dict = {}
@@ -228,7 +228,7 @@ def allStates_health(health_condn):
     # Create our session (link) from Python to the DB
     session = Session(engine)
 
-    """Return a list of passenger data including the state, latitude, and longitude of each passenger"""
+    """Return all records based on a given health condition"""
     # Query all states
     results = session.query(
         data_table.State,
