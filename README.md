@@ -1,5 +1,8 @@
 # Impact of Weather conditions over Health
 
+### Presentation Link:
+https://www.canva.com/design/DAGIn3w-RYs/1VE-25TFAd2c4Jte8d7zXg/edit?utm_content=DAGIn3w-RYs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ## Analyzing Health Conditions and Their Relationship with Weather Factors Across the USA
 In this project, we will conduct an in-depth analysis of common health conditions such as asthma, obesity, and depression. Our goal is to explore the relationships between these health conditions and various weather factors, including temperature, air quality index (AQI), and clear skies, across all states in the USA.
 
